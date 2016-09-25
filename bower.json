@@ -1,0 +1,32 @@
+{
+  "name": "get-lazy",
+  "version": "0.0.1",
+  "main": "get-lazy.html",
+  "description": "Lightweight lazy loading content component for Polymer.",
+  "homepage" : "https://github.com/ernysans/get-lazy",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Erny Sans",
+      "homepage": "http://erny.co",
+      "role": "Developer"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ernysans/get-lazy.git"
+  },
+  "keywords": ["get-lazy", "erny", "sans", "js", "javascript", "window", "responsive", "images", "videos", "lazy", "load", "bootstrap", "retina", "hd"],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0",
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
+    "animate.css": "^3.5.2",
+  }
+}
