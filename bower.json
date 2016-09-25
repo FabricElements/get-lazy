@@ -19,14 +19,14 @@
   },
   "keywords": ["get-lazy", "erny", "sans", "js", "javascript", "window", "responsive", "images", "videos", "lazy", "load", "bootstrap", "retina", "hd"],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.4.0",
+    "polymer": "Polymer/polymer#^1.4.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
     "web-component-tester": "^4.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
-    "animate.css": "^3.5.2",
+    "animate.css": "^3.5.2"
   },
   "ignore": [
     "**/.*",
