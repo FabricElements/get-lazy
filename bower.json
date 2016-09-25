@@ -10,8 +10,7 @@
   "authors": [
     {
       "name": "Erny Sans",
-      "homepage": "http://erny.co",
-      "role": "Developer"
+      "url": "http://erny.co"
     }
   ],
   "repository": {
@@ -28,5 +27,13 @@
     "web-component-tester": "^4.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
     "animate.css": "^3.5.2",
-  }
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "private": true
 }
