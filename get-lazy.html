@@ -63,215 +63,218 @@ Example:
 -->
 
 <script>
-  (function() {
-    'use strict';
+    (function() {
+        'use strict';
 
-    Polymer({
-      is: 'get-lazy',
+        Polymer({
+            is: 'get-lazy',
 
-      properties: {
-        /**
-         * Retuns the Url of the final image.
-         */
-        dataId: {
-          type: String,
-          value: null,
-          notify: true,
-          reflectToAttribute: true,
-        },
-        /**
-         * Dafault Url.
-         */
-        dataSrc: {
-          type: String,
-          value: null,
-        },
-        /**
-         * Url for Extra Small screens.
-         */
-        dataSrcXs: {
-          type: String,
-          value: null,
-        },
-        /**
-         * Url for Small screens.
-         */
-        dataSrcSm: {
-          type: String,
-          value: null,
-        },
-        /**
-         * Url for Medium screens.
-         */
-        dataSrcMd: {
-          type: String,
-          value: null,
-        },
-        /**
-         * Url for Large screens.
-         */
-        dataSrcLg: {
-          type: String,
-          value: null,
-        },
-        /**
-         * Url for Extra Large screens.
-         */
-        dataSrcXl: {
-          type: String,
-          value: null,
-        },
-        /**
-         * Url for Extra large screens (only for large Retina or HD screens).
-         */
-        dataSrcHd: {
-          type: String,
-          value: null,
-        },
-        /**
-         * User defined feedback class.
-         */
-        dataClass: {
-          type: String,
-          value: null,
-        },
-        /**
-         * Retuns the User defined feedback class ("data-class").
-         */
-        dataClassId: {
-          type: String,
-          value: null,
-          notify: true,
-          reflectToAttribute: true,
-        },
-      },
-      attached: function() {
-        window.addEventListener('resize', this._setSize.bind(this), false);
-        window.addEventListener('scroll', this._setSize.bind(this), false);
-      },
+            properties: {
+                /**
+                 * Retuns the Url of the final image.
+                 */
+                dataId: {
+                    type: String,
+                    value: null,
+                    notify: true,
+                    reflectToAttribute: true,
+                },
+                /**
+                 * Dafault Url.
+                 */
+                dataSrc: {
+                    type: String,
+                    value: null,
+                },
+                /**
+                 * Url for Extra Small screens.
+                 */
+                dataSrcXs: {
+                    type: String,
+                    value: null,
+                },
+                /**
+                 * Url for Small screens.
+                 */
+                dataSrcSm: {
+                    type: String,
+                    value: null,
+                },
+                /**
+                 * Url for Medium screens.
+                 */
+                dataSrcMd: {
+                    type: String,
+                    value: null,
+                },
+                /**
+                 * Url for Large screens.
+                 */
+                dataSrcLg: {
+                    type: String,
+                    value: null,
+                },
+                /**
+                 * Url for Extra Large screens.
+                 */
+                dataSrcXl: {
+                    type: String,
+                    value: null,
+                },
+                /**
+                 * Url for Extra large screens (only for large Retina or HD screens).
+                 */
+                dataSrcHd: {
+                    type: String,
+                    value: null,
+                },
+                /**
+                 * User defined feedback class.
+                 */
+                dataClass: {
+                    type: String,
+                    value: null,
+                },
+                /**
+                 * Retuns the User defined feedback class ("data-class").
+                 */
+                dataClassId: {
+                    type: String,
+                    value: null,
+                    notify: true,
+                    reflectToAttribute: true,
+                },
+            },
+            attached: function() {
+                this._setSize();
+                window.addEventListener('resize', this._setSize.bind(this), false);
+                window.addEventListener('scroll', this._setSize.bind(this), false);
+            },
 
-      /**
-       * Detects the screen size and return a string value (Bootstrap Sizes).
-       */
-      _screenSize: function() {
-        var w = Math.max(window.innerWidth || document.documentElement.clientWidth || 0); // window width
-        var h = Math.max(window.innerHeight || document.documentElement.clientHeight || 0); // window height
+            /**
+             * Detects the screen size and return a string value (Bootstrap Sizes).
+             */
+            _screenSize: function() {
+                var w = Math.max(window.innerWidth || document.documentElement.clientWidth || 0); // window width
+                var h = Math.max(window.innerHeight || document.documentElement.clientHeight || 0); // window height
 
-        if (w >= 1200) return 'xl'; // Extra large screens
-        else if (w >= 992 && w <= 1199) return 'lg'; // Large screens
-        else if (w >= 768 && w <= 991) return 'md'; // Medium screens
-        else if (w >= 544 && w <= 767) return 'sm'; // Small screens
-        else return 'xs'; // Extra small screens
-      },
+                if (w >= 1200) return 'xl'; // Extra large screens
+                else if (w >= 992 && w <= 1199) return 'lg'; // Large screens
+                else if (w >= 768 && w <= 991) return 'md'; // Medium screens
+                else if (w >= 544 && w <= 767) return 'sm'; // Small screens
+                else return 'xs'; // Extra small screens
+            },
 
-      /**
-       * Detects the screen density and return a string value (sd, hd, retina).
-       */
-      _screenDensity: function() {
-        // Get the Screen Density ======================================================================= //
-        var retina = ((window.matchMedia && (window.matchMedia('only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx), only screen and (min-resolution: 75.6dpcm)').matches || window.matchMedia(
-          'only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)').matches)) || (window.devicePixelRatio &&
-          window.devicePixelRatio > 2)) && /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
-        var hd = (window.matchMedia && (window.matchMedia('only screen and (min-resolution: 124dpi), only screen and (min-resolution: 1.3dppx), only screen and (min-resolution: 48.8dpcm)').matches || window.matchMedia(
-          'only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 2.6/2), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3)').matches)) || (window.devicePixelRatio &&
-          window.devicePixelRatio > 1.3);
+            /**
+             * Detects the screen density and return a string value (sd, hd, retina).
+             */
+            _screenDensity: function() {
+                // Get the Screen Density ======================================================================= //
+                var retina = ((window.matchMedia && (window.matchMedia('only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx), only screen and (min-resolution: 75.6dpcm)').matches || window.matchMedia(
+                    'only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)'
+                ).matches)) || (window.devicePixelRatio &&
+                    window.devicePixelRatio > 2)) && /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
+                var hd = (window.matchMedia && (window.matchMedia('only screen and (min-resolution: 124dpi), only screen and (min-resolution: 1.3dppx), only screen and (min-resolution: 48.8dpcm)').matches || window.matchMedia(
+                    'only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 2.6/2), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3)'
+                ).matches)) || (window.devicePixelRatio &&
+                    window.devicePixelRatio > 1.3);
 
-        if (retina) return 'retina'; // is Retina
-        else if (hd) return 'hd'; // is High Density
-        else return 'sd'; // is Standard
-      },
+                if (retina) return 'retina'; // is Retina
+                else if (hd) return 'hd'; // is High Density
+                else return 'sd'; // is Standard
+            },
 
-      /**
-       * Checks if the image is available and returns a string value depending on the Screen Density and Screen Size.
-       */
-      _defineSize: function() {
-        // Define the  size depending on the Screen Size and Screen Density
-        var screenDensity = this._screenDensity();
-        var screenSize = this._screenSize();
+            /**
+             * Checks if the image is available and returns a string value depending on the Screen Density and Screen Size.
+             */
+            _defineSize: function() {
+                // Define the  size depending on the Screen Size and Screen Density
+                var screenDensity = this._screenDensity();
+                var screenSize = this._screenSize();
 
-        if (screenDensity == 'hd' || screenDensity == 'retina') {
-          if (this.dataSrcXl && screenSize == 'xl') return 'hd';
-          else if (this.dataSrcLg && screenSize == 'lg') return 'xl';
-          else if (this.dataSrcMd && screenSize == 'md') return 'lg';
-          else if (this.dataSrcSm && screenSize == 'sm') return 'md';
-          else if (this.dataSrcXs && screenSize == 'xs') return 'sm';
-          else return 'base';
-        } else if (screenDensity == 'sd') {
-          if (this.dataSrcXl && screenSize == 'xl') return 'xl';
-          else if (this.dataSrcLg && screenSize == 'lg') return 'lg';
-          else if (this.dataSrcMd && screenSize == 'md') return 'md';
-          else if (this.dataSrcSm && screenSize == 'sm') return 'sm';
-          else if (this.dataSrcXs && screenSize == 'xs') return 'xs';
-          else return 'base';
-        } else {
-          return 'base'
-        };
-      },
+                if (screenDensity == 'hd' || screenDensity == 'retina') {
+                    if (this.dataSrcXl && screenSize == 'xl') return 'hd';
+                    else if (this.dataSrcLg && screenSize == 'lg') return 'xl';
+                    else if (this.dataSrcMd && screenSize == 'md') return 'lg';
+                    else if (this.dataSrcSm && screenSize == 'sm') return 'md';
+                    else if (this.dataSrcXs && screenSize == 'xs') return 'sm';
+                    else return 'base';
+                } else if (screenDensity == 'sd') {
+                    if (this.dataSrcXl && screenSize == 'xl') return 'xl';
+                    else if (this.dataSrcLg && screenSize == 'lg') return 'lg';
+                    else if (this.dataSrcMd && screenSize == 'md') return 'md';
+                    else if (this.dataSrcSm && screenSize == 'sm') return 'sm';
+                    else if (this.dataSrcXs && screenSize == 'xs') return 'xs';
+                    else return 'base';
+                } else {
+                    return 'base'
+                };
+            },
 
-      /**
-       * Set the 'data-id' attribute with the url of the corresponding image.
-       */
-      _setSize: function() {
+            /**
+             * Set the 'data-id' attribute with the url of the corresponding image.
+             */
+            _setSize: function() {
+                var isVisible = this._checkIfVisible();
 
-        var isVisible = this._checkIfVisible();
-        if (isVisible) {
-          var finalSize = this._defineSize();
+                if (isVisible) {
+                    var finalSize = this._defineSize();
 
-          if (finalSize == 'hd') {
-            this.setAttribute('data-id', this.dataSrcHd);
-          } else if (finalSize == 'xl') {
-            this.setAttribute('data-id', this.dataSrcXl);
-          } else if (finalSize == 'lg') {
-            this.setAttribute('data-id', this.dataSrcLg);
-          } else if (finalSize == 'md') {
-            this.setAttribute('data-id', this.dataSrcMd);
-          } else if (finalSize == 'sm') {
-            this.setAttribute('data-id', this.dataSrcSm);
-          } else if (finalSize == 'base') {
-            this.setAttribute('data-id', this.dataSrc);
-          }
+                    if (finalSize == 'hd') {
+                        this.setAttribute('data-id', this.dataSrcHd);
+                    } else if (finalSize == 'xl') {
+                        this.setAttribute('data-id', this.dataSrcXl);
+                    } else if (finalSize == 'lg') {
+                        this.setAttribute('data-id', this.dataSrcLg);
+                    } else if (finalSize == 'md') {
+                        this.setAttribute('data-id', this.dataSrcMd);
+                    } else if (finalSize == 'sm') {
+                        this.setAttribute('data-id', this.dataSrcSm);
+                    } else if (finalSize == 'base') {
+                        this.setAttribute('data-id', this.dataSrc);
+                    }
 
-          this._setDataClassId();
-        }
-      },
+                    // this._setDataClassId();
+                }
+            },
 
-      /**
-       * Set the 'data-class-id' attribute with the user custom 'data-class'.
-       */
-      _setDataClassId: function() {
-        this.setAttribute('data-class-id', this.dataClass);
-      },
+            /**
+             * Set the 'data-class-id' attribute with the user custom 'data-class'.
+             */
+            _setDataClassId: function() {
+                this.setAttribute('data-class-id', this.dataClass);
+            },
 
-      /**
-       * Check if the image is close to the offsete of the page and returns boolean.
-       */
-      _checkIfVisible: function() {
-        // Get item offset
-        var itemOffset = this.getBoundingClientRect();
-        var itemOffsetTop = itemOffset.top; // these are relative to the viewport, i.e. the window
+            /**
+             * Check if the image is close to the offsete of the page and returns boolean.
+             */
+            _checkIfVisible: function() {
+                // Get item offset
+                var itemOffset = this.getBoundingClientRect();
+                var itemOffsetTop = itemOffset.top; // these are relative to the viewport, i.e. the window
 
-        // Set base offset
-        var h = Math.max(window.innerHeight || document.documentElement.clientHeight || 0); // window height
-        var baseOffset = (h + (h / 2));
+                // Set base offset
+                var h = Math.max(window.innerHeight || document.documentElement.clientHeight || 0); // window height
+                var baseOffset = (h + (h / 2));
 
-        return itemOffsetTop <= baseOffset;
-      },
+                return (itemOffsetTop <= h && itemOffsetTop <= baseOffset);
+            },
 
-      /**
-       * Logs the current value of all the attributes.
-       */
-      _checkAttributes: function() {
-        console.log('data-id:' + this.dataId);
-        console.log('data-src:' + this.dataSrc);
-        console.log('data-src-xs:' + this.dataSrcXs);
-        console.log('data-src-sm:' + this.dataSrcSm);
-        console.log('data-src-md:' + this.dataSrcMd);
-        console.log('data-src-lg:' + this.dataSrcLg);
-        console.log('data-src-xl:' + this.dataSrcXl);
-        console.log('data-class:' + this.dataClass);
-        console.log('data-class-id:' + this.dataClassId);
-      }
+            /**
+             * Logs the current value of all the attributes.
+             */
+            _checkAttributes: function() {
+                console.log('data-id:' + this.dataId);
+                console.log('data-src:' + this.dataSrc);
+                console.log('data-src-xs:' + this.dataSrcXs);
+                console.log('data-src-sm:' + this.dataSrcSm);
+                console.log('data-src-md:' + this.dataSrcMd);
+                console.log('data-src-lg:' + this.dataSrcLg);
+                console.log('data-src-xl:' + this.dataSrcXl);
+                console.log('data-class:' + this.dataClass);
+                console.log('data-class-id:' + this.dataClassId);
+            }
 
-    });
-  })();
+        });
+    })();
 </script>
