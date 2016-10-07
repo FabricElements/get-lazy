@@ -2,35 +2,35 @@
 <html>
 
 <head>
-  <title>get-lazy demo</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <title>get-lazy demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
-  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
 
-  <link rel="import" href="../get-lazy.html">
+    <link rel="import" href="../get-lazy.html">
 
-  <style is="custom-style" include="demo-pages-shared-styles">
-    img {
-      width: 100%;
-      margin-bottom: 30px;
-    }
+    <style is="custom-style" include="demo-pages-shared-styles">
+        img {
+            width: 100%;
+            margin-bottom: 30px;
+        }
 
-    .centered {
-      margin-bottom: 800px;
-    }
-  </style>
+        .centered {
+            margin-bottom: 800px;
+        }
+    </style>
 
 </head>
 
 <body>
 
-  <div class="vertical-section-container centered">
-    <h3>A plain <code>get-lazy</code>.</h3>
-    <demo-snippet>
-      <template is="dom-bind">
+    <div class="vertical-section-container centered">
+        <h3>A plain <code>get-lazy</code>.</h3>
+        <demo-snippet>
+            <template is="dom-bind">
         <get-lazy
           data-id="{{demoId}}"
           data-src="image/default.jpg"
@@ -46,13 +46,13 @@
         <img title="Demo Image" src$="{{demoId}}" class$="{{demoClass}}" />
         {{demoId}}
       </template>
-    </demo-snippet>
-  </div>
+        </demo-snippet>
+    </div>
 
-  <div class="vertical-section-container centered">
-    <h3>A plain <code>get-lazy</code>.</h3>
-    <demo-snippet>
-      <template is="dom-bind">
+    <div class="vertical-section-container centered">
+        <h3>A plain <code>get-lazy</code>.</h3>
+        <demo-snippet>
+            <template is="dom-bind">
         <get-lazy
           data-id="{{demoId2}}"
           data-src="image/default.jpg"
@@ -68,8 +68,30 @@
         <img title="Demo Image" src$="{{demoId2}}" class$="{{demoClass2}}" />
         {{demoId}}
       </template>
-    </demo-snippet>
-  </div>
+        </demo-snippet>
+    </div>
+
+    <div class="vertical-section-container centered">
+        <h3>A plain <code>get-lazy</code>.</h3>
+        <demo-snippet>
+            <template is="dom-bind">
+        <get-lazy
+          data-id="{{demoId2}}"
+          data-src="image/default.jpg"
+          data-src-xs="image/xs.jpg"
+          data-src-sm="image/sm.jpg"
+          data-src-md="image/md.jpg"
+          data-src-lg="image/lg.jpg"
+          data-src-xl="image/xl.jpg"
+          data-src-hd="image/hd.jpg"
+          data-class-id="{{demoClass2}}"
+          data-class="animate fadeIn"
+        ></get-lazy>
+        <img title="Demo Image" src$="{{demoId2}}" class$="{{demoClass2}}" />
+        {{demoId}}
+      </template>
+        </demo-snippet>
+    </div>
 
 </body>
 
