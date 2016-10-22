@@ -3,10 +3,10 @@
   "version": "0.0.2",
   "main": "get-lazy.html",
   "description": "Lightweight lazy loading content component for Polymer.",
-  "homepage" : "https://github.com/ernysans/get-lazy",
+  "homepage": "https://github.com/ernysans/get-lazy",
   "minimum-stability": "dev",
   "prefer-stable": true,
-  "license": "MIT",
+  "license": "Apache-2.0",
   "authors": [
     {
       "name": "Erny Sans",
@@ -17,21 +17,40 @@
     "type": "git",
     "url": "git://github.com/ernysans/get-lazy.git"
   },
-  "keywords": ["get-lazy", "erny", "sans", "js", "javascript", "window", "responsive", "images", "videos", "lazy", "load", "bootstrap", "retina", "hd"],
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "get-lazy",
+    "javascript",
+    "responsive",
+    "images",
+    "videos",
+    "lazy",
+    "load",
+    "retina",
+    "hd",
+    "erny",
+    "sans"
+  ],
   "dependencies": {
     "polymer": "Polymer/polymer#2.0-preview"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#2.0-preview",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#2.0-preview",
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#2.0-preview",
+    "iron-test-helpers": "PolymerElements/iron-test-helpers#2.0-preview",
     "test-fixture": "PolymerElements/test-fixture#custom-elements-v1",
     "web-component-tester": "^4.0.0",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#v1",
-    "animate.css": "^3.5.2"
+    "webcomponentsjs": "webcomponents/webcomponentsjs#v1"
   },
   "resolutions": {
     "test-fixture": "custom-elements-v1",
     "polymer": "2.0-preview",
+    "iron-flex-layout": "2.0-preview",
+    "iron-component-page": "2.0-preview",
+    "iron-test-helpers": "2.0-preview",
     "webcomponentsjs": "v1"
   },
   "ignore": [
