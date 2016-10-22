@@ -64,6 +64,7 @@ Example:
 -->
 
 <script>
+//    class GetLazy extends Polymer.Element {
     class GetLazy extends Polymer.Element {
         static get is() { return 'get-lazy'; }
         /**
@@ -267,7 +268,6 @@ Example:
          */
         _setDataClassId() {
             this.set('dataClassId', this.dataClass);
-            console.log('data-id:' + this.dataId);
         }
     
         /**

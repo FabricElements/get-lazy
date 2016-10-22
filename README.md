@@ -2,37 +2,44 @@
 
 Lightweight lazy loading content component for Polymer.
 
-## Install the Polymer-CLI
+## Demo
 
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your application locally.
-
-## Viewing Your Application
-
+<!---
 ```
-$ polymer serve
+<custom-element-demo>
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="get-lazy.html">
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        align-items: flex-end;
+        height: 80px;
+        background: #009688;
+        color: white;
+      }
+    </style>
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
 ```
-
-## Building Your Application
-
+-->
+```html
+<dom-bind>
+    <template is="dom-bind">
+        <get-lazy data-id="{{demoId}}"
+                  data-src="image/default.jpg"
+                  data-src-xs="image/xs.jpg"
+                  data-src-sm="image/sm.jpg"
+                  data-src-md="image/md.jpg"
+                  data-src-lg="image/lg.jpg"
+                  data-src-xl="image/xl.jpg"
+                  data-src-hd="image/hd.jpg"
+                  data-class-id="{{demoClass}}"
+                  data-class="animate fadeIn"
+        ></get-lazy>
+        <img title="Demo Image" src$="{{demoId}}" class$="{{demoClass}}"/>
+    </template>
+</dom-bind>
 ```
-$ polymer build
-```
-
-This will create a `build/` folder with `bundled/` and `unbundled/` sub-folders
-containing a bundled (Vulcanized) and unbundled builds, both run through HTML,
-CSS, and JS optimizers.
-
-You can serve the built versions by giving `polymer serve` a folder to serve
-from:
-
-```
-$ polymer serve build/bundled
-```
-
-## Running Tests
-
-```
-$ polymer test
-```
-
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
