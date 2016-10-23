@@ -5,12 +5,14 @@
     <title>get-lazy demo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
     
     <link rel="import" href="../get-lazy.html">
+    
     
     <custom-style>
         <style include="demo-pages-shared-styles">
@@ -36,26 +38,25 @@
 
 </head>
 
-<body>
-
+<body unresolved>
 <div class="vertical-section-container centered">
     <h3>A plain <code>get-lazy</code>.</h3>
     <demo-snippet>
         <template>
             <dom-bind>
                 <template>
-                    <get-lazy data-id="{{demoId}}"
-                              data-src="image/default.jpg"
-                              data-src-xs="image/xs.jpg"
-                              data-src-sm="image/sm.jpg"
-                              data-src-md="image/md.jpg"
-                              data-src-lg="image/lg.jpg"
-                              data-src-xl="image/xl.jpg"
-                              data-src-hd="image/hd.jpg"
-                              data-class-id="{{demoClass}}"
-                              data-class="animate fadeIn"
+                    <get-lazy data-id="{{demoId1}}"
+                            data-src="image/default.jpg"
+                            data-src-xs="image/xs.jpg"
+                            data-src-sm="image/sm.jpg"
+                            data-src-md="image/md.jpg"
+                            data-src-lg="image/lg.jpg"
+                            data-src-xl="image/xl.jpg"
+                            data-src-hd="image/hd.jpg"
+                            data-class-id="{{demoClass1}}"
+                            data-class="animate fadeIn"
                     ></get-lazy>
-                    <img title="Demo Image" src$="{{demoId}}" class$="{{demoClass}}"/>
+                    <img title="Demo Image" src$="{{demoId1}}" class$="{{demoClass1}}"/>
                 </template>
             </dom-bind>
         </template>
@@ -69,15 +70,15 @@
             <dom-bind>
                 <template>
                     <get-lazy data-id="{{demoId2}}"
-                              data-src="image/default.jpg"
-                              data-src-xs="image/xs.jpg"
-                              data-src-sm="image/sm.jpg"
-                              data-src-md="image/md.jpg"
-                              data-src-lg="image/lg.jpg"
-                              data-src-xl="image/xl.jpg"
-                              data-src-hd="image/hd.jpg"
-                              data-class-id="{{demoClass2}}"
-                              data-class="animate fadeIn"
+                            data-src="image/default.jpg"
+                            data-src-xs="image/xs.jpg"
+                            data-src-sm="image/sm.jpg"
+                            data-src-md="image/md.jpg"
+                            data-src-lg="image/lg.jpg"
+                            data-src-xl="image/xl.jpg"
+                            data-src-hd="image/hd.jpg"
+                            data-class-id="{{demoClass2}}"
+                            data-class="animate fadeIn"
                     ></get-lazy>
                     <img title="Demo Image" src$="{{demoId2}}" class$="{{demoClass2}}"/>
                 </template>

@@ -57,18 +57,13 @@ Example:
             data-class="animate fadeIn"
         ></get-lazy>
 
-@group Iron Elements
 @demo demo/index.html
-@hero hero.svg
 @element get-lazy
 -->
-
+<dom-module id="get-lazy">
 <script>
     class GetLazy extends Polymer.Element {
-        static get is() {
-            return 'get-lazy';
-        }
-        
+        static get is() { return 'get-lazy'; }
         /**
          * Set properties, observers meta data.
          */
@@ -150,14 +145,12 @@ Example:
                 }
             }
         }
-        
         /**
          * Run when the element is created
          */
         constructor() {
             super();
         }
-        
         /**
          * Run every time the element is attached
          */
@@ -167,21 +160,21 @@ Example:
             window.addEventListener('resize', this._setSize.bind(this), false);
             window.addEventListener('scroll', this._setSizeUndefined.bind(this), false);
         }
-        
+    
         /**
          * Detects the screen size and return a string value (Bootstrap Sizes).
          */
         _screenSize() {
             var w = Math.max(window.innerWidth || document.documentElement.clientWidth || 0); // window width
 //            var h = Math.max(window.innerHeight || document.documentElement.clientHeight || 0); // window height
-            
+        
             if (w >= 1200) return 'xl'; // Extra large screens
             else if (w >= 992 && w <= 1199) return 'lg'; // Large screens
             else if (w >= 768 && w <= 991) return 'md'; // Medium screens
             else if (w >= 544 && w <= 767) return 'sm'; // Small screens
             else return 'xs'; // Extra small screens
         }
-        
+    
         /**
          * Detects the screen density and return a string value (sd, hd, retina).
          */
@@ -195,12 +188,12 @@ Example:
                             'only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 2.6/2), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3)'
                     ).matches)) || (window.devicePixelRatio &&
                     window.devicePixelRatio > 1.3);
-            
+        
             if (retina) return 'retina'; // is Retina
             else if (hd) return 'hd'; // is High Density
             else return 'sd'; // is Standard
         }
-        
+    
         /**
          * Checks if the image is available and returns a string value depending on the Screen Density and Screen Size.
          */
@@ -208,7 +201,7 @@ Example:
             // Define the  size depending on the Screen Size and Screen Density
             var screenDensity = this._screenDensity();
             var screenSize = this._screenSize();
-            
+        
             if (screenDensity == 'hd' || screenDensity == 'retina') {
                 if (this.dataSrcXl && screenSize == 'xl') return 'hd';
                 else if (this.dataSrcLg && screenSize == 'lg') return 'xl';
@@ -225,27 +218,26 @@ Example:
                 else return 'base';
             } else {
                 return 'base'
-            }
-            ;
+            };
         }
-        
+    
         /**
          * Verify if 'dataId' is undefined and set size.
          */
         _setSizeUndefined() {
             if (!this.dataId) this._setSize();
         }
-        
+    
         /**
          * Set the 'data-id' attribute with the url of the corresponding image.
          */
         _setSize() {
             var isVisible = this._checkIfVisible();
-            
+        
             if (isVisible) {
-                
+            
                 var finalSize = this._defineSize();
-                
+            
                 if (finalSize == 'hd') {
                     this.set('dataId', this.dataSrcHd);
                     this._setDataClassId();
@@ -267,14 +259,15 @@ Example:
                 }
             }
         }
-        
+    
         /**
          * Set the 'data-class-id' attribute with the user custom 'data-class'.
          */
         _setDataClassId() {
             this.set('dataClassId', this.dataClass);
+            console.log('data-id:' + this.dataId);
         }
-        
+    
         /**
          * Check if the image is close to the offsete of the page and returns boolean.
          */
@@ -282,14 +275,14 @@ Example:
             // Get item offset
             var itemOffset = this.getBoundingClientRect();
             var itemOffsetTop = itemOffset.top; // these are relative to the viewport, i.e. the window
-            
+        
             // Set base offset
             var h = Math.max(window.outerHeight || window.innerHeight || 0); // window height
             var baseOffset = (h + 100);
-            
+        
             return (itemOffsetTop <= baseOffset);
         }
-        
+    
         /**
          * Logs the current value of all the attributes.
          */
@@ -309,3 +302,4 @@ Example:
     // Register custom element definition using standard platform API
     customElements.define(GetLazy.is, GetLazy);
 </script>
+</dom-module>
