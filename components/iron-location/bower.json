@@ -1,0 +1,42 @@
+{
+  "name": "iron-location",
+  "version": "2.0.0",
+  "description": "Bidirectional data binding into the page's URL.",
+  "private": true,
+  "authors": [
+    "The Polymer Authors"
+  ],
+  "keywords": [
+    "web-components",
+    "polymer",
+    "routing"
+  ],
+  "main": [
+    "iron-location.html",
+    "iron-query-params.html"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PolymerElements/iron-location.git"
+  },
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/PolymerElements/iron-location",
+  "ignore": [],
+  "dependencies": {
+    "polymer": "Polymer/polymer#2.0-preview"
+  },
+  "devDependencies": {
+    "promise-polyfill": "polymerlabs/promise-polyfill#^1.0.0",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#2.0-preview",
+    "test-fixture": "polymerelements/test-fixture#custom-elements-v1",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#v1",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#2.0-preview",
+    "iron-component-page": "PolymerElements/iron-component-page#2.0-preview"
+  },
+  "resolutions": {
+    "test-fixture": "custom-elements-v1",
+    "webcomponentsjs": "v1",
+    "polymer": "2.0-preview"
+  }
+}

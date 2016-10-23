@@ -1,0 +1,35 @@
+{
+  "name": "iron-demo-helpers",
+  "version": "2.0.0",
+  "description": "Utility classes to make building demo pages easier",
+  "authors": [
+    "The Polymer Authors"
+  ],
+  "keywords": [
+    "web-components",
+    "polymer",
+    "demo"
+  ],
+  "main": [
+    "demo-snippet.html",
+    "url-bar.html"
+  ],
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PolymerElements/iron-demo-helpers.git"
+  },
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/PolymerElements/iron-demo-helpers",
+  "ignore": [],
+  "dependencies": {
+    "polymer": "polymer/polymer#2.0-preview",
+    "iron-flex-layout": "polymerelements/iron-flex-layout#2.0-preview",
+    "font-roboto": "PolymerElements/font-roboto#^1.0.0",
+    "iron-location": "PolymerElements/iron-location#2.0-preview"
+  },
+  "devDependencies": {
+    "webcomponentsjs": "webcomponents/webcomponentsjs#v1",
+    "web-component-tester": "^4.0.0"
+  }
+}
