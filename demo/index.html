@@ -7,87 +7,52 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
     
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    
-    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../polymer/polymer.html">
     
     <link rel="import" href="../get-lazy.html">
     
     
     <custom-style>
-        <style include="demo-pages-shared-styles">
-            .vertical-section-container {
-                max-width: 500px;
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                height: 100vh;
             }
-            
-            paper-button {
-                margin-left: 10px;
-                margin-right: 10px;
-            }
-            
-            img {
+
+            figure {
+                padding: 0;
+                margin: 0;
+                position: fixed;
+                top: 0;
+                left: 0;
                 width: 100%;
-                margin-bottom: 30px;
-            }
-            
-            .centered {
-                margin-bottom: 800px;
+                height: 100%;
+                background-position: center;
+                background-size: cover;
             }
         </style>
     </custom-style>
 
 </head>
 
-<body unresolved>
-<div class="vertical-section-container centered">
-    <h3>A plain <code>get-lazy</code>.</h3>
-    <demo-snippet>
-        <template>
-            <dom-bind>
-                <template>
-                    <get-lazy data-id="{{demoId1}}"
-                            data-src="image/default.jpg"
-                            data-src-xs="image/xs.jpg"
-                            data-src-sm="image/sm.jpg"
-                            data-src-md="image/md.jpg"
-                            data-src-lg="image/lg.jpg"
-                            data-src-xl="image/xl.jpg"
-                            data-src-hd="image/hd.jpg"
-                            data-class-id="{{demoClass1}}"
-                            data-class="animate fadeIn"
-                    ></get-lazy>
-                    <img title="Demo Image" src$="{{demoId1}}" class$="{{demoClass1}}"/>
-                </template>
-            </dom-bind>
-        </template>
-    </demo-snippet>
-</div>
-
-<div class="vertical-section-container centered">
-    <h3>A plain <code>get-lazy</code>.</h3>
-    <demo-snippet>
-        <template>
-            <dom-bind>
-                <template>
-                    <get-lazy data-id="{{demoId2}}"
-                            data-src="image/default.jpg"
-                            data-src-xs="image/xs.jpg"
-                            data-src-sm="image/sm.jpg"
-                            data-src-md="image/md.jpg"
-                            data-src-lg="image/lg.jpg"
-                            data-src-xl="image/xl.jpg"
-                            data-src-hd="image/hd.jpg"
-                            data-class-id="{{demoClass2}}"
-                            data-class="animate fadeIn"
-                    ></get-lazy>
-                    <img title="Demo Image" src$="{{demoId2}}" class$="{{demoClass2}}"/>
-                </template>
-            </dom-bind>
-        </template>
-    </demo-snippet>
-</div>
-
-
+<body unresolved class="fullbleed">
+<dom-bind>
+    <template>
+        <get-lazy data-id="{{demoId}}"
+                  data-src="image/default.jpg"
+                  data-src-xs="image/xs.jpg"
+                  data-src-sm="image/sm.jpg"
+                  data-src-md="image/md.jpg"
+                  data-src-lg="image/lg.jpg"
+                  data-src-xl="image/xl.jpg"
+                  data-src-hd="image/hd.jpg"
+                  data-class-id="{{demoClass}}"
+                  data-class="animate fadeIn"
+        ></get-lazy>
+        <figure style$="background-image: url({{demoId}});"></figure>
+    </template>
+</dom-bind>
 </body>
 
 </html>
