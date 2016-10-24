@@ -1,6 +1,6 @@
 {
   "name": "get-lazy",
-  "version": "0.0.2",
+  "version": "v0.2-alpha",
   "main": "get-lazy.html",
   "description": "Lightweight lazy loading content component for Polymer.",
   "homepage": "https://github.com/ernysans/get-lazy",

@@ -11,13 +11,8 @@ Lightweight lazy loading content component for Polymer.
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="get-lazy.html">
     <style>
-      body {
-        margin: 0;
-        display: flex;
-        align-items: flex-end;
-        height: 80px;
-        background: #009688;
-        color: white;
+      img {
+        max-width: 100%;
       }
     </style>
     <next-code-block></next-code-block>
@@ -55,14 +50,9 @@ Lightweight lazy loading content component for Polymer.
         <script src="../webcomponentsjs/webcomponents-lite.js"></script>
         <link rel="import" href="get-lazy.html">
         <style>
-            body {
-                margin: 0;
-                display: flex;
-                align-items: flex-end;
-                height: 80px;
-                background: #009688;
-                color: white;
-            }
+              img {
+                max-width: 100%;
+              }
         </style>
         <next-code-block></next-code-block>
         </template>
